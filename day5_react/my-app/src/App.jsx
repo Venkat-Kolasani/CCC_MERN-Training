@@ -1,102 +1,40 @@
-import { useState } from "react";
-import StudentForm from "./StudentForm";
-import studentsData from "./students";
-import "./App.css";
+import Header from "./components/Header";
+import Navigation from "./components/Navigation";
+import Sidebar from "./components/Sidebar";
+import MainContent from "./components/MainContent";
+import Footer from "./components/Footer";
 
 function App() {
-
-  const [students, setStudents] = useState(studentsData);
-
-  const [editStudent, setEditStudent] = useState(null);
-
-  function addStudent(student) {
-    setStudents([...students, student]);
-  }
-
-  function deleteStudent(id) {
-    setStudents(
-      students.filter(student => student.id !== id)
-    );
-  }
-
-  function updateStudent(updatedStudent) {
-
-    setStudents(
-      students.map(student =>
-        student.id === updatedStudent.id
-          ? updatedStudent
-          : student
-      )
-    );
-
-    setEditStudent(null);
-  }
-
   return (
- <div className="container">
+    <>
+      {/* Header */}
+      <Header />
 
-      <h1>Student CRUD App</h1>
+      {/* Navigation */}
+      <Navigation />
 
-      <StudentForm
-       addStudent={addStudent}
-        editStudent={editStudent}
-        updateStudent={updateStudent}
-      />
+      {/* Main Content Area */}
+      <main className="container-fluid mt-3">
 
-      <table>
+        <div className="row">
 
-        <thead>
+          {/* Sidebar */}
+          <aside className="col-md-3 mb-3">
+            <Sidebar />
+          </aside>
+          {/* Main Section */}
+          <section className="col-md-9">
+            <MainContent />
+          </section>
 
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Course</th>
-            <th>Actions</th>
-          </tr>
-</thead>
+        </div>
 
-        <tbody>
+      </main>
 
-          {
-            students.map(student => (
-
-              <tr key={student.id}>
-
-                <td>{student.id}</td>
-
-                <td>{student.name}</td>
-
-                <td>{student.course}</td>
-
-                <td>
-
-                  <button
-                    onClick={() => setEditStudent(student)}
-                  >
-                    Edit
-                  </button>
-
-                  <button
-                    onClick={() => deleteStudent(student.id)}
-                  >
-                    Delete
-                  </button>
-
-                </td>
-
-              </tr>
-
-            ))
-          }
-
-        </tbody>
-
-      </table>
-
-    </div>
-
+      {/* Footer */}
+      <Footer />
+    </>
   );
 }
 
 export default App;
-
