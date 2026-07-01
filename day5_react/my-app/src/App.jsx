@@ -1,32 +1,102 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from "react";
+import StudentForm from "./StudentForm";
+import studentsData from "./students";
+import "./App.css";
 
 function App() {
-  const [theme, setTheme] = useState('light');
 
-  useEffect(() => {
-    if (theme === 'light') {
-      document.body.style.backgroundColor = 'white';
-      document.body.style.color = 'black';
-      document.title = 'Light Theme';
-    } else {
-      document.body.style.backgroundColor = 'black';
-      document.body.style.color = 'white';
-      document.title = 'Dark Theme';
-    }
-  }, [theme]);
+  const [students, setStudents] = useState(studentsData);
 
-  const toggleTheme = () => {
-    setTheme((t) => (t === 'light' ? 'dark' : 'light'));
-  };
+  const [editStudent, setEditStudent] = useState(null);
+
+  function addStudent(student) {
+    setStudents([...students, student]);
+  }
+
+  function deleteStudent(id) {
+    setStudents(
+      students.filter(student => student.id !== id)
+    );
+  }
+
+  function updateStudent(updatedStudent) {
+
+    setStudents(
+      students.map(student =>
+        student.id === updatedStudent.id
+          ? updatedStudent
+          : student
+      )
+    );
+
+    setEditStudent(null);
+  }
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '100px' }}>
-      <h1>Theme Change</h1>
-      <h2>Current Theme: {theme}</h2>
+ <div className="container">
 
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <h1>Student CRUD App</h1>
+
+      <StudentForm
+       addStudent={addStudent}
+        editStudent={editStudent}
+        updateStudent={updateStudent}
+      />
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Actions</th>
+          </tr>
+</thead>
+
+        <tbody>
+
+          {
+            students.map(student => (
+
+              <tr key={student.id}>
+
+                <td>{student.id}</td>
+
+                <td>{student.name}</td>
+
+                <td>{student.course}</td>
+
+                <td>
+
+                  <button
+                    onClick={() => setEditStudent(student)}
+                  >
+                    Edit
+                  </button>
+
+                  <button
+                    onClick={() => deleteStudent(student.id)}
+                  >
+                    Delete
+                  </button>
+
+                </td>
+
+              </tr>
+
+            ))
+          }
+
+        </tbody>
+
+      </table>
+
     </div>
+
   );
 }
 
 export default App;
+
