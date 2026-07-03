@@ -1,0 +1,35 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "AAAAA",
+      "course": "IoT"
+    },
+    {
+      "id": "2",
+      "name": "BBBBB",
+      "course": "Java"
+    },
+    {
+      "id": "3",
+      "name": "CCCCC",
+      "course": "Python"
+    },
+    {
+      "name": "DDDDD",
+      "course": "Data Structure",
+      "id": "3zJDJfhrpgo"
+    },
+    {
+      "name": "EEEEE",
+      "course": "SPM",
+      "id": "GPqhze2lcGk"
+    },
+    {
+      "name": "FFFFF",
+      "course": "DS",
+      "id": "rIUTcRo_gpo"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
