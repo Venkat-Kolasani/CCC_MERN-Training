@@ -1,11 +1,12 @@
-import { FaUsers } from "react-icons/fa";
+import { FaUsers, FaTrash } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
 
 function CourseCard({
   title,
   students,
-  id
+  id,
+  onDelete
 }) {
 
   return (
@@ -28,11 +29,22 @@ function CourseCard({
 
       </p>
 
-      <Link to={`/course/${id}`}>
-        <button>
-          View Course
+      <div className="card-actions">
+
+        <Link to={`/course/${id}`}>
+          <button>
+            View Course
+          </button>
+        </Link>
+
+        <button
+          onClick={() => onDelete(id)}
+          className="delete-btn"
+        >
+          <FaTrash />
         </button>
-      </Link>
+
+      </div>
 
     </div>
   );

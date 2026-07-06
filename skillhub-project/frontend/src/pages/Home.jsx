@@ -6,6 +6,8 @@ import CourseCard from "../components/CourseCard";
 
 import API from "../api/courseApi";
 
+import { toast } from "react-toastify";
+
 function Home() {
 
   const [courses, setCourses] = useState([]);
@@ -44,6 +46,39 @@ function Home() {
     finally {
 
       setLoading(false);
+
+    }
+
+  }
+
+  async function handleDelete(id) {
+
+    const confirmed =
+      window.confirm(
+        "Are you sure you want to delete this course?"
+      );
+
+    if (!confirmed) return;
+
+    try {
+
+      await API.delete(
+        `/courses/${id}`
+      );
+
+      toast.success(
+        "Course Deleted Successfully"
+      );
+
+      fetchCourses();
+
+    }
+
+    catch (error) {
+
+      toast.error(
+        "Failed To Delete Course"
+      );
 
     }
 
@@ -90,6 +125,7 @@ function Home() {
                 id={course._id}
                 title={course.title}
                 students={course.students}
+                onDelete={handleDelete}
               />
 
             ))

@@ -9,6 +9,7 @@ import Courses from "./pages/Courses";
 import Contact from "./pages/Contact";
 import AddCourse from "./pages/AddCourse";
 import CourseDetails from "./pages/CourseDetails";
+import About from "./pages/About";
 
 import { ThemeProvider } from "./components/ThemeContext";
 
@@ -53,6 +54,11 @@ function App() {
               <Route
                 path="/course/:id"
                 element={<CourseDetails />}
+              />
+
+              <Route
+                path="/about"
+                element={<About />}
               />
 
             </Routes>

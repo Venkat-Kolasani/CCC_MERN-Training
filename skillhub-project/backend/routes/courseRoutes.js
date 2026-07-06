@@ -8,7 +8,8 @@ const {
   getCourses,
   addCourse,
   getCourseById,
-  updateCourse
+  updateCourse,
+  deleteCourse
 }
 =
 require(
@@ -33,6 +34,11 @@ router.get(
 router.put(
   "/:id",
   updateCourse
+);
+
+router.delete(
+  "/:id",
+  deleteCourse
 );
 
 module.exports = router;
