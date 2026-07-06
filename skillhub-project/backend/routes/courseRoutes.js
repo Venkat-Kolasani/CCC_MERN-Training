@@ -7,7 +7,8 @@ express.Router();
 const {
   getCourses,
   addCourse,
-  getCourseById
+  getCourseById,
+  updateCourse
 }
 =
 require(
@@ -27,6 +28,11 @@ router.post(
 router.get(
   "/:id",
   getCourseById
+);
+
+router.put(
+  "/:id",
+  updateCourse
 );
 
 module.exports = router;
