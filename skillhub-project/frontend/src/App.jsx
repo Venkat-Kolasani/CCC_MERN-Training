@@ -4,10 +4,11 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";  
 import Footer from "./components/Footer";
 
-import Home from "./pages/Home";  
-import Courses from "./pages/Courses";  
-import Contact from "./pages/Contact";  
+import Home from "./pages/Home";
+import Courses from "./pages/Courses";
+import Contact from "./pages/Contact";
 import AddCourse from "./pages/AddCourse";
+import CourseDetails from "./pages/CourseDetails";
 
 import { ThemeProvider } from "./components/ThemeContext";
 
@@ -44,9 +45,14 @@ function App() {
                 element={<Contact />}  
               />
 
-              <Route  
-                path="/add-course"  
-                element={<AddCourse />}  
+              <Route
+                path="/add-course"
+                element={<AddCourse />}
+              />
+
+              <Route
+                path="/course/:id"
+                element={<CourseDetails />}
               />
 
             </Routes>

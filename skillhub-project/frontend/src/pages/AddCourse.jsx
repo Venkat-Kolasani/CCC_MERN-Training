@@ -9,7 +9,11 @@ function AddCourse() {
   const [course, setCourse] =  
     useState({  
       title: "",  
-      students: ""  
+      students: "",
+      description: "",
+      instructor: "",
+      duration: "",
+      category: ""
     });
 
   async function handleSubmit(e) {
@@ -41,7 +45,11 @@ function AddCourse() {
 
       setCourse({  
         title: "",  
-        students: ""  
+        students: "",
+        description: "",
+        instructor: "",
+        duration: "",
+        category: ""
       });
 
     }
@@ -86,6 +94,62 @@ function AddCourse() {
             setCourse({  
               ...course,  
               students: e.target.value  
+            })  
+          }
+        />
+
+        <br /><br />
+
+        <textarea
+          rows="3"
+          placeholder="Course Description"
+          value={course.description}
+          onChange={(e) =>
+            setCourse({  
+              ...course,  
+              description: e.target.value  
+            })  
+          }
+        />
+
+        <br /><br />
+
+        <input
+          type="text"
+          placeholder="Instructor Name"
+          value={course.instructor}
+          onChange={(e) =>
+            setCourse({  
+              ...course,  
+              instructor: e.target.value  
+            })  
+          }
+        />
+
+        <br /><br />
+
+        <input
+          type="text"
+          placeholder="Duration (e.g., 4 weeks)"
+          value={course.duration}
+          onChange={(e) =>
+            setCourse({  
+              ...course,  
+              duration: e.target.value  
+            })  
+          }
+        />
+
+        <br /><br />
+
+        <input
+          type="text"
+          placeholder="Category (e.g., Web Development)"
+          value={course.category}
+          onChange={(e) =>
+            setCourse({  
+              ...course,  
+              category: e.target.value  
             })  
           }
         />

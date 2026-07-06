@@ -87,6 +87,7 @@ function Home() {
 
               <CourseCard
                 key={course._id}
+                id={course._id}
                 title={course.title}
                 students={course.students}
               />

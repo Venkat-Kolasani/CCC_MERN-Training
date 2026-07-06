@@ -4,10 +4,11 @@ require("express");
 const router =
 express.Router();
 
-const {  
-  getCourses,  
-  addCourse  
-}  
+const {
+  getCourses,
+  addCourse,
+  getCourseById
+}
 =
 require(
   "../controllers/courseController"
@@ -21,6 +22,11 @@ router.get(
 router.post(
   "/",
   addCourse
+);
+
+router.get(
+  "/:id",
+  getCourseById
 );
 
 module.exports = router;

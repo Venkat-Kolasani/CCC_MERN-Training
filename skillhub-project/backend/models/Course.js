@@ -11,6 +11,26 @@ new mongoose.Schema({
   students: {  
     type: Number,  
     required: true  
+  },
+
+  description: {
+    type: String,
+    required: false
+  },
+
+  instructor: {
+    type: String,
+    required: false
+  },
+
+  duration: {
+    type: String,
+    required: false
+  },
+
+  category: {
+    type: String,
+    required: false
   }
 
 },  

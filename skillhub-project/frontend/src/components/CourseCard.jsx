@@ -1,22 +1,25 @@
 import { FaUsers } from "react-icons/fa";
 
-function CourseCard({  
-  title,  
-  students  
+import { Link } from "react-router-dom";
+
+function CourseCard({
+  title,
+  students,
+  id
 }) {
 
-  return (  
+  return (
     <div className="card">
 
-      <h2>  
-        {title}  
+      <h2>
+        {title}
       </h2>
 
       <p>
 
         <FaUsers />
 
-        {" "}  
+        {" "}
         Students :
 
         {" "}
@@ -25,11 +28,13 @@ function CourseCard({
 
       </p>
 
-      <button>  
-        View Course  
-      </button>
+      <Link to={`/course/${id}`}>
+        <button>
+          View Course
+        </button>
+      </Link>
 
-    </div>  
+    </div>
   );
 }
 
