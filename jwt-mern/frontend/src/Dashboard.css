@@ -1,0 +1,175 @@
+/* ===========================================
+   Dashboard Layout
+=========================================== */
+
+.dashboard-container {
+    display: flex;
+    min-height: calc(100vh - 120px);
+    background: #f4f6f9;
+}
+
+/* ===========================================
+   Main Content
+=========================================== */
+
+.main-content {
+    flex: 1;
+    padding: 25px;
+}
+
+/* ===========================================
+   Section Title
+=========================================== */
+
+.section-title {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+hr {
+    margin: 40px 0;
+    border: none;
+    border-top: 2px solid #dddddd;
+}
+
+/* ===========================================
+   Food Grid
+=========================================== */
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+/* ===========================================
+   Food Card
+=========================================== */
+
+.food-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .15);
+    padding: 15px;
+    text-align: center;
+    transition: .3s;
+}
+
+.food-card:hover {
+    transform: translateY(-6px);
+}
+
+.food-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.food-card h3 {
+    margin: 15px 0 10px;
+    color: #2c3e50;
+}
+
+.food-card p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.food-card button {
+    width: 100%;
+    padding: 10px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: .3s;
+}
+
+.food-card button:hover {
+    background: #1e8449;
+}
+
+/* ===========================================
+   Ordered Foods
+=========================================== */
+
+.ordered-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ===========================================
+   Ordered Card
+=========================================== */
+
+.ordered-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .12);
+}
+
+.ordered-card img {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.ordered-card h3 {
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.ordered-card p {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.ordered-card span {
+    color: green;
+    font-weight: bold;
+}
+
+/* ===========================================
+   Empty Order
+=========================================== */
+
+.empty-order {
+    text-align: center;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    color: gray;
+    font-size: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+}
+
+/* ===========================================
+   Responsive Design
+=========================================== */
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .ordered-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ordered-card img {
+        width: 100%;
+        height: 200px;
+    }
+}
